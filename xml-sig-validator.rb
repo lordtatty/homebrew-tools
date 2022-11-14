@@ -5,20 +5,20 @@
 class XmlSigValidator < Formula
   desc ""
   homepage "https://github.com/lordtatty/homebrew-tools"
-  version "0.19"
+  version "0.20"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.19/xml-sig-validatator_0.19_Darwin_arm64.tar.gz"
-      sha256 "336914c9510c0c3765c4a01990e71d6c34369780850006247472cdaa0502483b"
+    if Hardware::CPU.intel?
+      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.20/xml-sig-validatator_0.20_Darwin_x86_64.tar.gz"
+      sha256 "719bd8bb51847cde23031d75a6e61484665f89f8d3e722fa76aca0b4a6256a16"
 
       def install
         bin.install "xml-sig-validatator"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.19/xml-sig-validatator_0.19_Darwin_x86_64.tar.gz"
-      sha256 "4a95af4686a0cc653babf16c32def40f61c4446526abc5a5ea513512d5f41477"
+    if Hardware::CPU.arm?
+      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.20/xml-sig-validatator_0.20_Darwin_arm64.tar.gz"
+      sha256 "f2f6c99919bbd91a372f778f1ffb8232480cd3fc9489f4daaf0d1a5d67d14466"
 
       def install
         bin.install "xml-sig-validatator"
@@ -27,17 +27,17 @@ class XmlSigValidator < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.19/xml-sig-validatator_0.19_Linux_x86_64.tar.gz"
-      sha256 "3cf27426ea47ace6942e7d3ed35f11ade8f60e5274f14f2ae5256ecd88998b04"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.20/xml-sig-validatator_0.20_Linux_arm64.tar.gz"
+      sha256 "69673402be27a282db65550ecc22f54788b6f9050f231306f2c8aee9301a2088"
 
       def install
         bin.install "xml-sig-validatator"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.19/xml-sig-validatator_0.19_Linux_arm64.tar.gz"
-      sha256 "3a0d8235c36ec20bafbc257193b04a3bb9a0907de4892f69a0f7531017ceaa0f"
+    if Hardware::CPU.intel?
+      url "https://github.com/lordtatty/xml-sig-validatator/releases/download/v0.20/xml-sig-validatator_0.20_Linux_x86_64.tar.gz"
+      sha256 "84aec281d46750148e7fb273f8289aa25dca87f21f681215b90aa8d87aa4ddc8"
 
       def install
         bin.install "xml-sig-validatator"
